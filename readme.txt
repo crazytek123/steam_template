@@ -1,20 +1,42 @@
 === Demontek Steam Template ===
 Contributors: Demontek
-Tags: gaming, steam, template, layout, youtube, trailers, reviews
+Tags: gaming, steam, template, layout, youtube, trailers, reviews, mobile, editor
 Requires at least: 5.0
 Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.6.3
+Stable tag: 1.8.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Steam-inspired gaming layout template for WordPress with REAL API integration, resizable layouts, enhanced YouTube support, and modular architecture.
+Steam-inspired gaming layout template for WordPress with REVOLUTIONARY Mobile Editor, tabbed modular architecture, and real-time preview system.
 
 == Description ==
 
-Transform your gaming content with the **Demontek Steam Template** - a comprehensive WordPress plugin that brings Steam's sleek gaming interface to your posts. Perfect for game reviews, trailers, and gaming content!
+Transform your gaming content with the **Demontek Steam Template** - now featuring our groundbreaking **Mobile Editor** that revolutionizes how you create and manage gaming content on WordPress!
 
-= 🎮 Key Features =
+= 🚀 NEW in v1.8.0: Mobile Editor Revolution! =
+
+**📱 Mobile-First Post Editor:**
+* Tabbed modular architecture for organized editing
+* Real-time preview always visible
+* Component communication system with visual feedback
+* Mobile-optimized interface perfect for editing on any device
+* Instant field updates with auto-save functionality
+
+**🧩 Tabbed Component System:**
+* **Main Controller Tab** - Master Steam layout toggle and system overview
+* **Title Scheme Tab** - Post title, AI summary, and genre management
+* **Featured Image Tab** - Image upload, sizing, and overlay controls
+* **Custom Fields Tab** - All Steam fields organized by category
+
+**⚡ Real-Time Features:**
+* Live preview updates as you type
+* Component status indicators with pulse animations
+* Architecture visualization showing active modules
+* Instant field validation and feedback
+* Auto-save every 2 seconds
+
+= 🎮 Core Features =
 
 * **Steam-Inspired Layout** - Authentic Steam gaming interface design
 * **Real WordPress API Integration** - Live data loading with AJAX endpoints
@@ -25,25 +47,32 @@ Transform your gaming content with the **Demontek Steam Template** - a comprehen
 * **Debug Console** - Real-time performance monitoring
 * **Live Navigation** - Previous/Next post functionality
 
-= 🚀 What's New in v1.6.3 =
+= 🎯 What's New in v1.8.0 =
 
-**🚨 CRITICAL FIXES:**
-* Fixed JavaScript syntax error that broke duplicate post function
-* Fixed debug console loading issues
-* Enhanced error handling throughout AJAX functions
-* Improved post list refresh behavior
+**🌟 REVOLUTIONARY MOBILE EDITOR:**
+* Complete mobile-first post editing interface
+* Tabbed component architecture for organized workflow
+* Real-time preview with instant field updates
+* Component communication visualization
+* Mobile-optimized design perfect for phones and tablets
 
-**🏗️ MODULAR ARCHITECTURE:**
-* Extracted edit post functionality to separate class
-* Created `/includes/class-post-editor.php` for better organization
-* Enhanced field management with improved validation
-* Safer code structure for future enhancements
+**🏗️ ENHANCED MODULAR ARCHITECTURE:**
+* New `class-mobile-editor.php` component
+* Enhanced AJAX handlers for mobile functionality
+* Improved component communication system
+* Better separation of concerns across modules
 
 **⚡ PERFORMANCE IMPROVEMENTS:**
-* Better error recovery and user feedback
-* Enhanced AJAX endpoint reliability
-* Improved memory usage and load times
-* More robust JavaScript error handling
+* Optimized mobile rendering with efficient DOM updates
+* Enhanced auto-save system with intelligent queuing
+* Improved memory usage for mobile devices
+* Better caching for frequently accessed data
+
+**🎨 UI/UX ENHANCEMENTS:**
+* Beautiful tabbed interface with smooth transitions
+* Component status indicators with pulse animations
+* Architecture map showing active modules
+* Improved notification system with better positioning
 
 = 📋 Custom Fields Supported =
 
@@ -81,44 +110,33 @@ Transform your gaming content with the **Demontek Steam Template** - a comprehen
 
 1. **Upload Plugin Files:**
    - Upload the entire `demontek-steam-template` folder to `/wp-content/plugins/`
-   - Ensure the `/includes/` directory exists with `class-post-editor.php`
+   - Ensure the `/includes/` directory exists with all class files
+   - Verify `class-mobile-editor.php` is present for mobile functionality
 
 2. **Activate Plugin:**
    - Go to WordPress Admin → Plugins
    - Find "Demontek Steam Template" and click "Activate"
 
-3. **Configure Settings:**
-   - Navigate to "Demontek Steam" in the admin menu
-   - Enable the template system
-   - Choose Global Mode or per-post control
+3. **Access Mobile Editor:**
+   - Go to WordPress Admin → Demontek Steam → 📱 Mobile Editor
+   - Select a post to edit or create a new one
+   - Experience the revolutionary mobile editing interface!
 
-4. **Add Content:**
-   - Edit any post to see Steam meta boxes
-   - Use "Single Post Enhancer" to add trailer URLs and content
-   - Configure layout options in the sidebar controls
-
-5. **Test & Preview:**
-   - Use preview buttons for real-time testing
-   - Check both desktop and mobile layouts
-   - Verify interactive features work correctly
-
-= ⚡ Quick Start Guide =
-
-**For Game Reviews:**
-1. Add `trailer_1` (main trailer URL)
-2. Add `ai_summary` (game description)
-3. Add `game_genre` (game category)
-4. Enable Steam layout in post sidebar
-5. Preview and publish!
-
-**For Enhanced Gaming Content:**
-1. Add up to 5 trailer URLs for comprehensive coverage
-2. Include developer info and platform details
-3. Add community reviews for social proof
-4. Link to Steam and purchase pages
-5. Use resizable layout for optimal presentation
+**Quick Start with Mobile Editor:**
+1. Navigate to **Demontek Steam → 📱 Mobile Editor**
+2. Select a post from the grid or create a new one
+3. Toggle Steam layout in the Main Controller tab
+4. Add content using the organized tabbed interface
+5. Watch real-time preview updates as you type!
 
 = 🔧 Advanced Features =
+
+**Mobile Editor Workflow:**
+- **Post Selection Grid** - Choose from recent posts with status indicators
+- **Component Status Bar** - Real-time status of all modules
+- **Architecture Map** - Visual representation of active components
+- **Tabbed Interface** - Organized editing with dedicated component tabs
+- **Live Preview** - Always-visible mobile preview with instant updates
 
 **Real-Time API Integration:**
 - Live post loading with category filtering
@@ -126,30 +144,38 @@ Transform your gaming content with the **Demontek Steam Template** - a comprehen
 - Real-time field completion tracking
 - Performance monitoring and debugging
 
-**Resizable Layout System:**
-- Drag the blue divider to resize sections
-- Live dimension display during resize
-- Minimum width constraints for usability
-- Responsive breakpoints for mobile
+**Component Communication:**
+- Event-driven architecture with visual feedback
+- Component status indicators with pulse animations
+- Real-time field validation and error handling
+- Auto-save with intelligent queuing system
 
-**Enhanced YouTube Support:**
-- Automatic thumbnail extraction
-- Smooth trailer switching
-- Preloaded thumbnails for faster loading
-- Enhanced play button functionality
+**Enhanced Mobile Experience:**
+- Touch-friendly interface optimized for mobile devices
+- Responsive design that works on all screen sizes
+- Gesture-friendly navigation and controls
+- Optimized loading for mobile connections
 
-**Debug & Development:**
-- Built-in debug console with performance metrics
-- Real-time error tracking and logging
-- Database query monitoring
-- Memory usage optimization
+= 📱 Mobile Editor Guide =
 
-= 📱 Mobile Optimization =
+**Getting Started:**
+1. **Access**: Go to Demontek Steam → 📱 Mobile Editor
+2. **Select Post**: Choose from the post grid or create new
+3. **Enable Steam**: Toggle Steam layout in Main Controller tab
+4. **Edit Content**: Use tabbed interface to organize your workflow
+5. **Preview**: Watch changes appear instantly in the live preview
 
-* Responsive design works on all screen sizes
-* Touch-friendly controls and navigation
-* Optimized loading for mobile connections
-* Automatic layout adjustments for small screens
+**Tab Organization:**
+- **Main Controller** - Master controls and system overview
+- **Title Scheme** - Post title, AI summary, genre
+- **Featured Image** - Image management and display options
+- **Custom Fields** - All Steam fields organized by category
+
+**Pro Tips:**
+- Use the architecture map to quickly switch between components
+- Watch the component status bar for real-time feedback
+- Auto-save runs every 2 seconds - no manual saving needed!
+- Preview updates instantly as you type for immediate feedback
 
 = 🎨 Customization =
 
@@ -157,7 +183,7 @@ Transform your gaming content with the **Demontek Steam Template** - a comprehen
 - Override styles in your theme's `style.css`
 - All classes prefixed with `demontek-`
 - CSS custom properties for easy color changes
-- Responsive breakpoints at 768px and 480px
+- Mobile-first responsive design with breakpoints
 
 **Template Customization:**
 - Copy `single-steam.php` to your theme directory
@@ -169,53 +195,47 @@ Transform your gaming content with the **Demontek Steam Template** - a comprehen
 - Use `demontek_steam_field_data` filter
 - Hook into `demontek_steam_template_loaded` action
 - Extend functionality with custom classes
-- Modify completion rate calculations
+- Add custom mobile editor components
 
 = 🔍 Troubleshooting =
 
 **Common Issues:**
 
-*Plugin not working after activation:*
-- Check if `/includes/class-post-editor.php` exists
-- Verify file permissions are correct
-- Ensure WordPress requirements are met
+*Mobile Editor not loading:*
+- Check if `/includes/class-mobile-editor.php` exists
+- Verify file permissions are correct (644 for files, 755 for directories)
+- Ensure WordPress requirements are met (WP 5.0+, PHP 7.4+)
 
-*JavaScript errors in console:*
+*Preview not updating:*
+- Check browser console for JavaScript errors
+- Verify AJAX URLs are correct in browser network tab
 - Clear browser cache and reload
-- Check for plugin conflicts
-- Verify admin AJAX URLs are correct
 
-*Duplicate post function not working:*
-- Ensure user has edit_posts and publish_posts capabilities
-- Check JavaScript console for errors
-- Verify AJAX nonce is valid
+*Component communication not working:*
+- Ensure all component files are present in `/includes/`
+- Check that nonces are being generated correctly
+- Verify user has `edit_posts` capability
 
-*Layout not displaying correctly:*
-- Confirm Steam layout is enabled for the post
-- Check if custom fields are populated
-- Verify theme compatibility
-
-**Debug Console:**
-Use the built-in debug console (admin area) to:
-- Monitor performance metrics
-- Track database queries
-- View error logs
-- Check system status
+**Mobile Editor Debugging:**
+- Open browser dev tools to monitor console
+- Check Network tab for AJAX request/response
+- Verify component status indicators show green dots
+- Use "Test Communication" button to verify system health
 
 = 🚀 What's Coming Next =
 
-**Planned Edit Post Enhancements:**
-- Live preview in WordPress editor
-- Enhanced field validation with real-time feedback
-- Steam field shortcuts and templates
-- Tabbed interface for better organization
-- Drag-and-drop trailer ordering
+**Planned Mobile Editor Enhancements:**
+- **Drag & Drop Interface** - Reorder trailers and content sections
+- **Advanced Preview Modes** - Desktop, tablet, and mobile previews
+- **Template Library** - Pre-built gaming content templates
+- **AI Integration** - Auto-generate descriptions and tags
+- **Bulk Operations** - Edit multiple posts simultaneously
 
-**Additional Modular Extractions:**
-- AJAX handlers → `class-ajax-handlers.php`
-- Admin interface → `class-admin-interface.php`
-- Quick actions → `class-quick-actions.php`
-- Field inspector → `class-field-inspector.php`
+**Additional Features:**
+- **Theme Integration** - Better compatibility with popular themes
+- **Performance Dashboard** - Real-time performance metrics
+- **Advanced Field Types** - Rich text, media galleries, custom components
+- **Export/Import** - Share configurations between sites
 
 = 📊 System Requirements =
 
@@ -224,54 +244,81 @@ Use the built-in debug console (admin area) to:
 - PHP 7.4 or higher
 - MySQL 5.6 or higher
 - Modern browser with JavaScript enabled
+- Mobile device or desktop with responsive design support
 
-**Recommended:**
+**Recommended for Best Mobile Experience:**
 - WordPress 6.0+
 - PHP 8.0+
 - 512MB PHP memory limit
-- SSD storage for better performance
+- SSD storage for faster loading
+- Modern mobile browser (Chrome, Safari, Firefox)
 
 = 🆘 Support =
 
 **Documentation:**
-- Inline code comments for developers
+- Comprehensive inline help in mobile editor
+- Component tooltips and status indicators
+- Built-in troubleshooting tools
 - WordPress Codex standards followed
-- Comprehensive error handling
-- Detailed debug information
 
 **Getting Help:**
-- Check the debug console for system information
-- Review browser console for JavaScript errors
+- Use the debug console in mobile editor for system info
+- Check browser console for JavaScript errors
 - Test with default WordPress theme first
 - Disable other plugins to check for conflicts
 
+**Mobile Editor Support:**
+- Component status indicators show real-time health
+- Architecture map helps identify issues
+- Auto-save prevents data loss
+- Real-time validation provides immediate feedback
+
 = 📜 Changelog =
 
-= 1.6.3 - 2024-01-XX =
+= 1.8.0 - 2024-01-XX =
 
-**🚨 Critical Fixes:**
-* Fixed JavaScript syntax error in `duplicatePost()` function that broke AJAX functionality
+**🚀 REVOLUTIONARY MOBILE EDITOR:**
+* Complete mobile-first post editing interface with tabbed architecture
+* Real-time preview with instant field updates and component communication
+* Component status indicators with pulse animations and visual feedback
+* Architecture map showing active modules and system health
+* Auto-save system with intelligent queuing and error handling
+
+**🏗️ ENHANCED MODULAR ARCHITECTURE:**
+* New `class-mobile-editor.php` component with full mobile functionality
+* Enhanced AJAX handlers: `mobile_save_field`, `mobile_get_post_data`, `mobile_toggle_steam`
+* Improved component communication system with event-driven architecture
+* Better separation of concerns across all plugin modules
+
+**⚡ PERFORMANCE IMPROVEMENTS:**
+* Optimized mobile rendering with efficient DOM updates and caching
+* Enhanced auto-save system with 2-second intervals and queue management
+* Improved memory usage for mobile devices with lazy loading
+* Better error handling and user feedback throughout the system
+
+**🎨 UI/UX ENHANCEMENTS:**
+* Beautiful tabbed interface with smooth transitions and hover effects
+* Component status bar with real-time indicators and pulse animations
+* Post selection grid with status indicators and quick actions
+* Improved notification system with better positioning and animations
+
+**🔧 TECHNICAL IMPROVEMENTS:**
+* Enhanced WordPress integration with proper nonce handling
+* Improved field validation with real-time feedback
+* Better mobile responsiveness with touch-friendly controls
+* Enhanced debugging capabilities with console logging
+
+= 1.7.0 - Previous Release =
+* Optimized performance with better memory management
+* Enhanced field validation and error handling
+* Improved mobile responsiveness and user experience
+* Better component separation and modular architecture
+
+= 1.6.3 - Previous Release =
+* Fixed JavaScript syntax error that broke AJAX functionality
 * Fixed debug console loading and display issues
 * Enhanced error handling with proper try-catch blocks and user feedback
 * Improved post list refresh behavior after duplication
-
-**🏗️ Modular Architecture:**
-* Extracted edit post page functionality to `/includes/class-post-editor.php`
-* Created modular class structure for better code organization
-* Enhanced field management with improved validation and error handling
-* Safer code structure preparation for future enhancements
-
-**⚡ Performance Improvements:**
-* Better error recovery and user feedback systems
-* Enhanced AJAX endpoint reliability and response handling
-* Improved memory usage and load times
-* More robust JavaScript error handling throughout
-
-**🔧 Technical Improvements:**
-* Enhanced URL validation for link fields with proper error logging
-* Improved completion rate calculation with better field detection
-* Better thumbnail extraction and fallback handling
-* Enhanced debug information with architecture status
 
 = 1.6.2 - Previous Release =
 * Real WordPress API integration with live data loading
@@ -303,46 +350,76 @@ Developed by Demontek for the WordPress gaming community.
 Inspired by Steam's gaming interface design.
 Built with modern web standards and WordPress best practices.
 
+**Special Thanks:**
+- Steam for interface inspiration
+- WordPress community for best practices
+- Mobile-first design principles
+- Component-based architecture patterns
+
 == Installation ==
 
 See the detailed installation instructions in the Description section above.
 
 == Frequently Asked Questions ==
 
-= Is this plugin compatible with my theme? =
+= How do I access the new Mobile Editor? =
 
-Yes! The plugin is designed to work with any WordPress theme. It uses its own template system that doesn't interfere with your theme's design.
+Go to WordPress Admin → Demontek Steam → 📱 Mobile Editor. You'll see a post selection grid where you can choose an existing post or create a new one.
 
-= Can I customize the Steam layout? =
+= Does the Mobile Editor work on desktop computers? =
 
-Absolutely! You can copy the template files to your theme directory and modify them, or override the CSS styles in your theme's stylesheet.
+Yes! While optimized for mobile devices, the Mobile Editor works perfectly on desktop computers, tablets, and any device with a modern browser.
 
-= How many trailers can I add per post? =
+= Can I still use the traditional WordPress editor? =
 
-You can add up to 5 trailers per post using the `trailer_1` through `trailer_5` custom fields.
+Absolutely! The Mobile Editor is an addition to your existing workflow. You can still use the classic WordPress editor, and there are quick links to switch between them.
 
-= Does this work with YouTube videos only? =
+= How does the real-time preview work? =
 
-Currently, the plugin is optimized for YouTube videos, but you can add any video URL to the custom fields.
+The preview updates instantly as you type. Changes to titles, descriptions, and other fields are reflected immediately in the mobile preview pane.
 
-= Will this slow down my website? =
+= Is the Mobile Editor compatible with my theme? =
 
-No! The plugin only loads its assets on posts that use the Steam layout, and it's optimized for performance with lazy loading and efficient code.
+Yes! The Mobile Editor is a standalone admin interface that doesn't affect your theme. It edits the same post data that your theme displays.
+
+= What happens if I disable the plugin? =
+
+All your content remains safe as regular WordPress posts. The Steam layout won't display, but all your content and custom fields are preserved.
+
+= Can I customize the Mobile Editor interface? =
+
+The Mobile Editor uses CSS that can be overridden. However, it's designed to be complete out-of-the-box. Focus on customizing the frontend Steam layout instead.
+
+= How does auto-save work in the Mobile Editor? =
+
+Changes are automatically saved every 2 seconds. You'll see confirmation notifications, and there's no need to manually save your work.
 
 = Can I use this for non-gaming content? =
 
-While designed for gaming content, you can adapt it for any content that benefits from a media-rich layout with multiple videos and detailed information.
+While designed for gaming content, you can adapt it for any media-rich content that benefits from trailers, reviews, and detailed information.
+
+= Does this work with Gutenberg/Block Editor? =
+
+Yes! The plugin adds custom fields that work with both classic and block editors. The Mobile Editor provides an alternative interface for managing these fields.
 
 == Screenshots ==
 
-1. **Steam Layout Frontend** - Beautiful Steam-inspired gaming layout with resizable sections
-2. **Admin Dashboard** - Comprehensive admin interface with live preview and debugging
-3. **Edit Post Interface** - Enhanced edit post screen with Steam field management
-4. **Mobile Layout** - Fully responsive design optimized for mobile devices
-5. **Debug Console** - Real-time performance monitoring and system information
-6. **Field Inspector** - Live field management with completion tracking
+1. **Mobile Editor Interface** - Revolutionary tabbed interface with real-time preview
+2. **Component Communication** - Visual feedback showing active modules and status
+3. **Post Selection Grid** - Choose from recent posts with status indicators
+4. **Steam Layout Frontend** - Beautiful Steam-inspired gaming layout
+5. **Architecture Map** - Visual representation of plugin components
+6. **Real-time Preview** - Instant updates as you edit content
+7. **Traditional Admin** - Enhanced WordPress admin with Steam controls
+8. **Mobile Responsive** - Perfect display on all screen sizes
 
 == Upgrade Notice ==
+
+= 1.8.0 =
+REVOLUTIONARY UPDATE: New Mobile Editor with tabbed architecture, real-time preview, and component communication system! This is a major feature release that transforms how you create gaming content. Safe upgrade with full backward compatibility. Highly recommended for all users!
+
+= 1.7.0 =
+Performance optimizations and enhanced modular architecture. Safe upgrade recommended.
 
 = 1.6.3 =
 Critical JavaScript error fixes and modular architecture improvements. Safe upgrade with full backward compatibility. Highly recommended for all users.
