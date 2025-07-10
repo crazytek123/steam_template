@@ -1,0 +1,1045 @@
+/* Demontek Steam Template - Frontend Styles v1.6.0 - COMPLETE WITH ALL FIXES */
+
+.demontek-steam-layout-wrapper {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%);
+    color: white;
+    line-height: 1.4;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 0 0 20px 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    z-index: 1;
+}
+
+/* FIXED: Dimension Display for Resizable Layout */
+.demontek-dimension-display {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: #67c1f5;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 1001;
+    border: 1px solid rgba(103, 193, 245, 0.4);
+    backdrop-filter: blur(10px);
+    display: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.demontek-dimension-display.show {
+    display: block;
+    animation: fadeInDimension 0.3s ease;
+}
+
+@keyframes fadeInDimension {
+    from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Fix for body padding to push footer down */
+body.single {
+    padding-bottom: 100px;
+}
+
+.demontek-floating-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.demontek-zone-toggle-btn,
+.demontek-fullscreen-btn,
+.demontek-edit-post-btn {
+    background: rgba(27, 40, 56, 0.9);
+    border: 1px solid rgba(103, 193, 245, 0.4);
+    color: #67c1f5;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+}
+
+.demontek-zone-toggle-btn:hover,
+.demontek-fullscreen-btn:hover,
+.demontek-edit-post-btn:hover {
+    background: rgba(103, 193, 245, 0.2);
+    border-color: #67c1f5;
+    transform: translateY(-2px);
+    color: #67c1f5;
+}
+
+.demontek-zone-toggle-btn.active {
+    background: rgba(190, 238, 17, 0.2);
+    border-color: #beee11;
+    color: #beee11;
+}
+
+/* NEW: Version badge */
+.demontek-version-badge {
+    background: rgba(190, 238, 17, 0.9);
+    color: #1b2838;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.demontek-steam-container {
+    position: relative;
+    width: 100%;
+    transition: all 0.4s ease;
+}
+
+.demontek-steam-header-section {
+    height: 75vh;
+    display: flex;
+    position: relative;
+    margin: 0 20px 20px 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.demontek-nav-arrow-left,
+.demontek-nav-arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(0,0,0,0.7);
+    border: 2px solid rgba(103, 193, 245, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    color: #67c1f5;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.demontek-nav-arrow-left {
+    left: 15px;
+}
+
+.demontek-nav-arrow-right {
+    right: 15px;
+}
+
+.demontek-nav-arrow-left:hover,
+.demontek-nav-arrow-right:hover {
+    background: rgba(103, 193, 245, 0.2);
+    border-color: #67c1f5;
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 0 20px rgba(103, 193, 245, 0.4);
+}
+
+.demontek-nav-arrow-left.disabled,
+.demontek-nav-arrow-right.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* FIXED: Enhanced Video Section with Resize Handle */
+.demontek-steam-video-section {
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+    position: relative;
+    min-width: 300px;
+    transition: flex 0.3s ease;
+}
+
+/* FIXED: Resize Handle - THIS WAS MISSING */
+.demontek-resize-handle {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 10px;
+    height: 100%;
+    background: rgba(103, 193, 245, 0.3);
+    cursor: ew-resize;
+    z-index: 200;
+    transition: all 0.3s ease;
+    border-left: 2px dashed rgba(103, 193, 245, 0.5);
+}
+
+.demontek-resize-handle:hover {
+    background: rgba(103, 193, 245, 0.5);
+    width: 15px;
+    right: -7px;
+}
+
+.demontek-resize-handle::after {
+    content: '?';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #67c1f5;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* FIXED: Bigger Main Trailer */
+.demontek-main-trailer {
+    height: 75%;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    background: #000;
+    transition: all 0.3s ease;
+}
+
+.demontek-main-trailer:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+}
+
+.demontek-trailer-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+}
+
+.demontek-trailer-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+}
+
+.demontek-trailer-placeholder h3 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+}
+
+.demontek-trailer-placeholder p {
+    margin: 5px 0;
+    opacity: 0.8;
+}
+
+.demontek-trailer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+}
+
+.demontek-main-trailer:hover .demontek-trailer-overlay {
+    opacity: 1;
+}
+
+.demontek-play-button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    color: #1b2838;
+}
+
+.demontek-play-button:hover {
+    background: white;
+    transform: scale(1.1);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+}
+
+/* FIXED: Smaller Trailer Gallery */
+.demontek-trailer-gallery {
+    height: 15%;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.demontek-trailer-gallery::-webkit-scrollbar {
+    height: 4px;
+}
+
+.demontek-trailer-gallery::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+}
+
+.demontek-trailer-gallery::-webkit-scrollbar-thumb {
+    background: #67c1f5;
+    border-radius: 2px;
+}
+
+.demontek-trailer-thumb {
+    min-width: 140px;
+    height: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background: linear-gradient(135deg, #444 0%, #666 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #8f98a0;
+    font-size: 11px;
+    text-align: center;
+    padding: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.demontek-trailer-thumb:hover {
+    border-color: #67c1f5;
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(103, 193, 245, 0.3);
+}
+
+.demontek-trailer-thumb.active {
+    border-color: #beee11;
+    background: linear-gradient(135deg, #4c6b22 0%, #6b8e23 100%);
+    color: #beee11;
+    box-shadow: 0 8px 24px rgba(190, 238, 17, 0.4);
+}
+
+/* NEW: Enhanced thumb display */
+.demontek-thumb-image {
+    width: 100%;
+    height: 60%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.demontek-thumb-label {
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.demontek-thumb-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.demontek-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(103, 193, 245, 0.3);
+    border-top: 2px solid #67c1f5;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* NEW: Trailer counter */
+.demontek-trailer-counter {
+    text-align: center;
+    font-size: 11px;
+    color: #8f98a0;
+    margin-top: 5px;
+}
+
+/* FIXED: Info Section - Now uses flex instead of fixed width */
+.demontek-steam-info-section {
+    flex: 1;
+    background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgba(103, 193, 245, 0.2);
+    position: relative;
+    min-width: 300px;
+    transition: all 0.3s ease;
+}
+
+/* FIXED: Enhanced Featured Image */
+.demontek-featured-image-section {
+    height: 380px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px 20px 0 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2a475e 0%, #316282 100%);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.demontek-featured-image-section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+}
+
+.demontek-featured-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.demontek-featured-placeholder {
+    color: #67c1f5;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.demontek-featured-placeholder::before {
+    content: '??';
+    font-size: 48px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.demontek-featured-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(27,40,56,0.9), transparent);
+    pointer-events: none;
+}
+
+/* FIXED: No scroll bar in game header */
+.demontek-game-header {
+    padding: 25px;
+    flex: 1;
+    overflow-y: visible;
+}
+
+.demontek-game-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #fff;
+    line-height: 1.1;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.demontek-game-subtitle {
+    font-size: 18px;
+    color: #67c1f5;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.demontek-meta-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 3px solid #67c1f5;
+}
+
+.demontek-meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.demontek-meta-label {
+    color: #8f98a0;
+    font-weight: 500;
+}
+
+.demontek-meta-value {
+    color: #fff;
+    font-weight: 600;
+}
+
+.demontek-description-text {
+    line-height: 1.6;
+    color: #acb2b8;
+    font-size: 14px;
+    margin-bottom: 20px;
+    background: rgba(0,0,0,0.1);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.demontek-navigation-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+}
+
+.demontek-nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.demontek-nav-dot:hover {
+    background: rgba(103, 193, 245, 0.7);
+    transform: scale(1.2);
+}
+
+.demontek-nav-dot.active {
+    background: #67c1f5;
+    transform: scale(1.4);
+    box-shadow: 0 0 15px rgba(103, 193, 245, 0.6);
+    border-color: rgba(255,255,255,0.3);
+}
+
+/* FIXED: Purchase Section - Moved Outside Video Area */
+.demontek-purchase-section-horizontal {
+    background: linear-gradient(135deg, #2a475e 0%, #316282 100%);
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 10px 20px 0 20px;
+    border: 1px solid rgba(103, 193, 245, 0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    position: relative;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.demontek-purchase-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.demontek-price-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.demontek-discount-badge {
+    background: linear-gradient(135deg, #4c6b22 0%, #6b8e23 100%);
+    color: #beee11;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.demontek-current-price {
+    color: #beee11;
+    font-size: 16px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.demontek-action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.demontek-store-link {
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.demontek-store-link.primary {
+    background: linear-gradient(135deg, #4c6b22 0%, #6b8e23 100%);
+    color: #beee11;
+}
+
+.demontek-store-link.secondary {
+    background: linear-gradient(135deg, #316282 0%, #4a90e2 100%);
+    color: white;
+}
+
+.demontek-store-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+    text-decoration: none;
+}
+
+.demontek-store-link.primary:hover {
+    background: linear-gradient(135deg, #6b8e23 0%, #8bc34a 100%);
+    color: #beee11;
+}
+
+.demontek-store-link.secondary:hover {
+    background: linear-gradient(135deg, #4a90e2 0%, #67c1f5 100%);
+    color: white;
+}
+
+.demontek-steam-content-section {
+    display: flex;
+    margin: 20px;
+    gap: 20px;
+    min-height: 40vh;
+}
+
+.demontek-content-main {
+    flex: 1;
+    padding: 40px;
+    background: linear-gradient(135deg, #1e2329 0%, #2a2d3a 100%);
+    border-radius: 12px;
+    border: 1px solid rgba(103, 193, 245, 0.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.demontek-content-sidebar {
+    width: 320px;
+    background: linear-gradient(135deg, #2a475e 0%, #316282 100%);
+    border: 1px solid rgba(103, 193, 245, 0.3);
+    border-radius: 12px;
+    padding: 30px 25px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.demontek-content-sidebar.extra-left {
+    width: 280px;
+    order: -1;
+}
+
+.demontek-content-sidebar.hidden {
+    display: none;
+}
+
+.demontek-content-title {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.demontek-content-text {
+    line-height: 1.7;
+    color: #acb2b8;
+    font-size: 15px;
+}
+
+.demontek-content-text p {
+    margin-bottom: 15px;
+}
+
+.demontek-sidebar-title {
+    font-size: 20px;
+    color: #67c1f5;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.demontek-sidebar-content {
+    color: #acb2b8;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.demontek-review-item {
+    background: rgba(0,0,0,0.3);
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 3px solid #67c1f5;
+    transition: all 0.3s ease;
+}
+
+.demontek-review-item:hover {
+    background: rgba(0,0,0,0.4);
+    border-left-color: #beee11;
+}
+
+.demontek-review-item:last-child {
+    margin-bottom: 0;
+}
+
+.demontek-review-header {
+    color: #67c1f5;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.demontek-review-text {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #acb2b8;
+}
+
+.demontek-author-bio {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 8px;
+    border-left: 3px solid #67c1f5;
+}
+
+.demontek-author-bio h4 {
+    color: #67c1f5;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* NEW: AI content styling */
+.demontek-ai-excerpt {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(103, 193, 245, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #67c1f5;
+}
+
+/* FIXED: Zone Label System */
+.demontek-zone-label {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: rgba(190, 238, 17, 0.9);
+    color: #1b2838;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    z-index: 50;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.show-zones .demontek-zone-label {
+    opacity: 1;
+}
+
+.demontek-steam-container.show-zones {
+    border: 2px dashed rgba(190, 238, 17, 0.5);
+}
+
+.demontek-steam-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    border-radius: 0;
+    margin: 0;
+    background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%);
+    overflow-y: auto;
+}
+
+.demontek-steam-comments-section {
+    margin: 20px;
+    background: linear-gradient(135deg, #1e2329 0%, #2a2d3a 100%);
+    border-radius: 12px;
+    padding: 40px;
+    border: 1px solid rgba(103, 193, 245, 0.1);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+.demontek-steam-comments-section h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Mobile Responsive */
+.demontek-steam-container.mobile-mode .demontek-steam-header-section {
+    flex-direction: column;
+    height: auto;
+    margin: 0 10px 20px 10px;
+}
+
+.demontek-steam-container.mobile-mode .demontek-steam-video-section {
+    height: auto;
+    min-height: 320px;
+    padding: 15px;
+}
+
+.demontek-steam-container.mobile-mode .demontek-steam-info-section {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(103, 193, 245, 0.2);
+}
+
+.demontek-steam-container.mobile-mode .demontek-steam-content-section {
+    flex-direction: column;
+    margin: 10px;
+    gap: 15px;
+}
+
+.demontek-steam-container.mobile-mode .demontek-content-sidebar {
+    width: 100%;
+    padding: 25px;
+}
+
+.demontek-steam-container.mobile-mode .demontek-content-main {
+    padding: 25px;
+}
+
+.demontek-steam-container.mobile-mode .demontek-game-header {
+    padding: 20px;
+}
+
+.demontek-steam-container.mobile-mode .demontek-game-title {
+    font-size: 24px;
+}
+
+.demontek-steam-container.mobile-mode .demontek-purchase-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+}
+
+.demontek-steam-container.mobile-mode .demontek-action-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.demontek-steam-container.mobile-mode .demontek-navigation-dots {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    justify-content: center;
+    padding: 25px;
+}
+
+@media (max-width: 768px) {
+    .demontek-steam-header-section {
+        flex-direction: column !important;
+        height: auto !important;
+        margin: 0 10px 20px 10px !important;
+    }
+    
+    .demontek-steam-info-section {
+        width: 100% !important;
+        flex: none !important;
+        border-left: none !important;
+        border-top: 1px solid rgba(103, 193, 245, 0.2) !important;
+    }
+    
+    .demontek-steam-content-section {
+        flex-direction: column !important;
+        margin: 10px !important;
+        gap: 15px !important;
+    }
+    
+    .demontek-content-sidebar {
+        width: 100% !important;
+        padding: 20px !important;
+    }
+    
+    .demontek-content-main {
+        padding: 25px !important;
+    }
+    
+    .demontek-nav-arrow-left,
+    .demontek-nav-arrow-right {
+        display: none;
+    }
+    
+    .demontek-floating-controls {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 10px;
+        justify-content: center;
+    }
+    
+    .demontek-resize-handle {
+        display: none;
+    }
+    
+    .demontek-dimension-display {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .demontek-steam-layout-wrapper {
+        margin: 0;
+        border-radius: 8px;
+    }
+    
+    .demontek-steam-header-section {
+        margin: 0 5px 15px 5px !important;
+        border-radius: 8px;
+    }
+    
+    .demontek-game-title {
+        font-size: 20px !important;
+    }
+    
+    .demontek-content-title {
+        font-size: 22px !important;
+    }
+    
+    .demontek-purchase-content {
+        flex-direction: column !important;
+        gap: 10px !important;
+        text-align: center !important;
+    }
+}
+
+/* WordPress Theme Compatibility */
+.demontek-steam-layout-wrapper * {
+    box-sizing: border-box;
+}
+
+.demontek-steam-layout-wrapper a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.demontek-steam-layout-wrapper h1,
+.demontek-steam-layout-wrapper h2,
+.demontek-steam-layout-wrapper h3,
+.demontek-steam-layout-wrapper h4,
+.demontek-steam-layout-wrapper h5,
+.demontek-steam-layout-wrapper h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: inherit;
+    color: inherit;
+}
+
+.demontek-steam-layout-wrapper p {
+    margin: 0 0 15px 0;
+}
+
+.demontek-steam-layout-wrapper ul,
+.demontek-steam-layout-wrapper ol {
+    margin: 0;
+    padding: 0;
+}
+
+/* Loading States */
+.demontek-loading {
+    opacity: 0.6;
+    animation: demontek-loading-pulse 1.5s infinite;
+}
+
+@keyframes demontek-loading-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Enhanced Animations for v1.6.0 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.9); }
+}
+
+@keyframes zoneToggle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* Print Styles */
+@media print {
+    .demontek-steam-layout-wrapper {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+    }
+    
+    .demontek-floating-controls,
+    .demontek-navigation-dots,
+    .demontek-nav-arrow-left,
+    .demontek-nav-arrow-right,
+    .demontek-play-button,
+    .demontek-trailer-overlay,
+    .demontek-zone-label,
+    .demontek-resize-handle,
+    .demontek-dimension-display {
+        display: none !important;
+    }
+    
+    .demontek-steam-header-section {
+        height: auto !important;
+    }
+    
+    .demontek-main-trailer {
+        height: 200px !important;
+        background: #f0f0f0 !important;
+        color: #333 !important;
+    }
+}

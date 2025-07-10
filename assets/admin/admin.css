@@ -1,0 +1,139 @@
+/* Demontek Steam Template - Admin Styles v1.0 */
+
+.demontek-admin-dashboard {
+    max-width: 1200px;
+}
+
+.demontek-status-card {
+    background: white;
+    border: 1px solid #ccd0d4;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.demontek-status-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.demontek-status-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.demontek-status-indicator.on {
+    background: #00a32a;
+}
+
+.demontek-status-indicator.off {
+    background: #dc3232;
+}
+
+.demontek-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.demontek-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.demontek-toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.demontek-toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .demontek-toggle-slider {
+    background-color: #2196F3;
+}
+
+input:checked + .demontek-toggle-slider:before {
+    transform: translateX(26px);
+}
+
+.demontek-btn-primary {
+    background: #2271b1;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.demontek-btn-primary:hover {
+    background: #135e96;
+}
+
+.demontek-notice {
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.demontek-notice.success {
+    background: #d1ecf1;
+    border-left: 4px solid #00a32a;
+    color: #0c5460;
+}
+
+.demontek-notice.warning {
+    background: #fff3cd;
+    border-left: 4px solid #f57c00;
+    color: #856404;
+}
+
+.demontek-notice.error {
+    background: #f8d7da;
+    border-left: 4px solid #dc3232;
+    color: #721c24;
+}
+
+.demontek-post-controls {
+    padding: 10px 0;
+}
+
+.demontek-control-item {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.demontek-control-item:last-child {
+    border-bottom: none;
+}
+
+.demontek-control-item label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #2271b1;
+}
