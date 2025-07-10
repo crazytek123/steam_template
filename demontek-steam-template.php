@@ -155,7 +155,7 @@ class DemontekSteamTemplate {
         add_submenu_page(
             'demontek-steam',
             'Steam Dashboard',
-            '?? Dashboard',
+            '🎮 Dashboard',
             'edit_posts',
             'demontek-steam',
             array($this, 'admin_page')
@@ -165,7 +165,7 @@ class DemontekSteamTemplate {
         add_submenu_page(
             'demontek-steam',
             'Mobile Post Editor',
-            '?? Mobile Editor',
+            '📱 Mobile Editor',
             'edit_posts',
             'demontek-mobile-editor',
             array($this, 'mobile_editor_page')
@@ -174,7 +174,7 @@ class DemontekSteamTemplate {
         add_submenu_page(
             'demontek-steam',
             'Field Inspector',
-            '?? Inspector',
+            '🔍 Inspector',
             'edit_posts',
             'demontek-inspector',
             array($this, 'inspector_page')
@@ -199,11 +199,11 @@ class DemontekSteamTemplate {
         // Existing admin page logic
         ?>
         <div class="wrap">
-            <h1>?? Demontek Steam Template v<?php echo $this->version; ?></h1>
+            <h1>🎮 Demontek Steam Template v<?php echo $this->version; ?></h1>
             <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; margin: 20px 0;">
-                <h2 style="margin: 0 0 10px 0;">?? NEW in v1.8.0: Mobile Post Editor!</h2>
+                <h2 style="margin: 0 0 10px 0;">🚀 NEW in v1.8.0: Mobile Post Editor!</h2>
                 <p style="margin: 0;">Transform your workflow with our new tabbed mobile editor interface featuring real-time preview and component communication!</p>
-                <a href="admin.php?page=demontek-mobile-editor" class="button button-primary" style="margin-top: 15px;">?? Try Mobile Editor</a>
+                <a href="admin.php?page=demontek-mobile-editor" class="button button-primary" style="margin-top: 15px;">📱 Try Mobile Editor</a>
             </div>
             <p>Configure your Steam template settings and manage gaming content with professional tools.</p>
         </div>
@@ -287,7 +287,70 @@ class DemontekSteamTemplate {
         return $template;
     }
     
-    // EXISTING AJAX HANDLERS (keeping all existing functionality)
+    /**
+     * Get Steam field data for a post
+     */
+    public function get_steam_field_data($post_id = null) {
+        if (!$post_id) {
+            global $post;
+            $post_id = $post ? $post->ID : 0;
+        }
+        
+        if (!$post_id) return array();
+        
+        // Get the post object
+        $post_obj = get_post($post_id);
+        if (!$post_obj) return array();
+        
+        $steam_fields = array(
+            'trailer_1', 'trailer_2', 'trailer_3', 'trailer_4', 'trailer_5',
+            'ai_summary', 'ai_excerpt', 'game_genre',
+            'review_1', 'review_2', 'review_3',
+            'original_link', 'steam_link', 'amazon_link',
+            'developer', 'platforms', 'release_date',
+            '_demontek_steam_use', '_demontek_steam_extra_sidebar', '_demontek_steam_content_layout'
+        );
+        
+        $field_data = array();
+        foreach ($steam_fields as $field) {
+            $field_data[$field] = get_post_meta($post_id, $field, true);
+        }
+        
+        // Add some computed fields that templates might expect
+        $field_data['post_title'] = $post_obj->post_title;
+        $field_data['post_content'] = $post_obj->post_content;
+        $field_data['post_excerpt'] = $post_obj->post_excerpt;
+        $field_data['post_date'] = $post_obj->post_date;
+        $field_data['post_author'] = $post_obj->post_author;
+        $field_data['post_id'] = $post_id;
+        
+        // Steam layout enabled check
+        $field_data['steam_enabled'] = ($field_data['_demontek_steam_use'] == '1');
+        
+        // Process trailers into array
+        $trailers = array();
+        for ($i = 1; $i <= 5; $i++) {
+            if (!empty($field_data["trailer_$i"])) {
+                $trailers["trailer_$i"] = $field_data["trailer_$i"];
+            }
+        }
+        $field_data['trailers'] = $trailers;
+        
+        // Process reviews into array
+        $reviews = array();
+        for ($i = 1; $i <= 3; $i++) {
+            if (!empty($field_data["review_$i"])) {
+                $reviews["review_$i"] = $field_data["review_$i"];
+            }
+        }
+        $field_data['reviews'] = $reviews;
+        
+        return $field_data;
+    }
+    
+    /**
+     * EXISTING AJAX HANDLERS (keeping all existing functionality)
+     */
     
     public function ajax_refresh_fields() {
         check_ajax_referer('demontek_steam_nonce', 'nonce');
@@ -312,8 +375,63 @@ class DemontekSteamTemplate {
     
     public function ajax_load_posts() {
         check_ajax_referer('demontek_steam_nonce', 'nonce');
-        // Existing load posts logic
-        wp_send_json_success(array());
+        
+        $category_id = intval($_POST['category_id']);
+        
+        if (!$category_id) {
+            wp_send_json_error('Category ID is required');
+        }
+        
+        // Get posts from the specified category
+        $args = array(
+            'post_type' => 'post',
+            'post_status' => array('publish', 'draft'),
+            'posts_per_page' => 10, // Limit to 10 posts for performance
+            'cat' => $category_id,
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'meta_query' => array(
+                'relation' => 'OR',
+                array(
+                    'key' => '_demontek_steam_use',
+                    'value' => '1',
+                    'compare' => '='
+                ),
+                array(
+                    'key' => '_demontek_steam_use',
+                    'compare' => 'NOT EXISTS'
+                )
+            )
+        );
+        
+        $posts = get_posts($args);
+        
+        if (empty($posts)) {
+            wp_send_json_error('No posts found in this category');
+        }
+        
+        // Format posts for frontend
+        $formatted_posts = array();
+        foreach ($posts as $post) {
+            $formatted_posts[] = array(
+                'ID' => $post->ID,
+                'post_title' => $post->post_title,
+                'post_content' => $post->post_content,
+                'post_excerpt' => $post->post_excerpt,
+                'post_date' => $post->post_date,
+                'post_status' => $post->post_status,
+                'post_author' => $post->post_author,
+                'permalink' => get_permalink($post->ID),
+                'edit_link' => get_edit_post_link($post->ID),
+                'steam_enabled' => get_post_meta($post->ID, '_demontek_steam_use', true) == '1'
+            );
+        }
+        
+        wp_send_json_success(array(
+            'posts' => $formatted_posts,
+            'total' => count($formatted_posts),
+            'category_id' => $category_id
+        ));
     }
     
     public function ajax_get_post_data() {
@@ -430,4 +548,56 @@ class DemontekSteamTemplate {
 }
 
 // Initialize the plugin
-new DemontekSteamTemplate();
+$demontek_steam_template = new DemontekSteamTemplate();
+
+/**
+ * Global function to get Steam field data (for template use)
+ */
+function get_demontek_steam_field_data($post_id = null) {
+    global $demontek_steam_template;
+    return $demontek_steam_template->get_steam_field_data($post_id);
+}
+
+/**
+ * Helper function to check if Steam layout is enabled for a post
+ */
+function is_demontek_steam_post($post_id = null) {
+    if (!$post_id) {
+        global $post;
+        $post_id = $post ? $post->ID : 0;
+    }
+    
+    return get_post_meta($post_id, '_demontek_steam_use', true) == '1';
+}
+
+/**
+ * Helper function to get Steam field value
+ */
+function get_demontek_steam_field($field_name, $post_id = null) {
+    if (!$post_id) {
+        global $post;
+        $post_id = $post ? $post->ID : 0;
+    }
+    
+    return get_post_meta($post_id, $field_name, true);
+}
+
+/**
+ * Helper function to get all Steam trailers for a post
+ */
+function get_demontek_steam_trailers($post_id = null) {
+    if (!$post_id) {
+        global $post;
+        $post_id = $post ? $post->ID : 0;
+    }
+    
+    $trailers = array();
+    for ($i = 1; $i <= 5; $i++) {
+        $trailer = get_post_meta($post_id, "trailer_$i", true);
+        if (!empty($trailer)) {
+            $trailers["trailer_$i"] = $trailer;
+        }
+    }
+    
+    return $trailers;
+}
