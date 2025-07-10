@@ -1,0 +1,78 @@
+ Volume in drive D is D-DRIVE2
+ Volume Serial Number is 2EF0-B0FC
+
+ Directory of D:\demontek-steam-template1.6b\demontek-steam-template
+
+09/07/2025  03:22 PM    <DIR>          .
+09/07/2025  03:22 PM    <DIR>          ..
+09/07/2025  03:22 PM                 0 1.txt
+03/07/2025  07:45 PM    <DIR>          assets
+09/07/2025  02:51 PM            73,550 demontek-steam-template.php
+08/07/2025  03:31 PM    <DIR>          includes
+08/07/2025  10:00 AM            12,595 readme.txt
+08/07/2025  03:32 PM    <DIR>          templates
+               3 File(s)         86,145 bytes
+
+ Directory of D:\demontek-steam-template1.6b\demontek-steam-template\assets
+
+03/07/2025  07:45 PM    <DIR>          .
+03/07/2025  07:45 PM    <DIR>          ..
+09/07/2025  09:10 AM    <DIR>          admin
+08/07/2025  03:30 PM    <DIR>          css
+08/07/2025  03:31 PM    <DIR>          js
+               0 File(s)              0 bytes
+
+ Directory of D:\demontek-steam-template1.6b\demontek-steam-template\assets\admin
+
+09/07/2025  09:10 AM    <DIR>          .
+09/07/2025  09:10 AM    <DIR>          ..
+09/07/2025  09:10 AM            84,000 admin-inspector.js
+08/07/2025  05:49 PM            84,000 admin-inspector.js.bak
+04/07/2025  05:39 PM             2,543 admin.css
+04/07/2025  05:39 PM               893 admin.js
+               4 File(s)        171,436 bytes
+
+ Directory of D:\demontek-steam-template1.6b\demontek-steam-template\assets\css
+
+08/07/2025  03:30 PM    <DIR>          .
+08/07/2025  03:30 PM    <DIR>          ..
+07/07/2025  09:38 AM            23,481 steam-frontend.css
+               1 File(s)         23,481 bytes
+
+ Directory of D:\demontek-steam-template1.6b\demontek-steam-template\assets\js
+
+08/07/2025  03:31 PM    <DIR>          .
+08/07/2025  03:31 PM    <DIR>          ..
+04/07/2025  05:39 PM             3,910 steam-frontend.js
+               1 File(s)          3,910 bytes
+
+ Directory of D:\demontek-steam-template1.6b\demontek-steam-template\includes
+
+08/07/2025  03:31 PM    <DIR>          .
+08/07/2025  03:31 PM    <DIR>          ..
+08/07/2025  09:58 AM            24,489 class-post-editor.php
+07/07/2025  08:39 PM            19,556 steam_dashboard_class.php
+07/07/2025  07:54 PM            42,704 steam_inspector_class.php
+07/07/2025  07:53 PM            32,633 steam_layout_class.php
+07/07/2025  07:54 PM            30,732 steam_metaboxes_class.php
+07/07/2025  08:39 PM            21,382 steam_renderer_class.php
+               6 File(s)        171,496 bytes
+
+ Directory of D:\demontek-steam-template1.6b\demontek-steam-template\templates
+
+08/07/2025  03:32 PM    <DIR>          .
+08/07/2025  03:32 PM    <DIR>          ..
+08/07/2025  10:39 AM    <DIR>          parts
+07/07/2025  11:02 AM            32,747 single-steam.php
+               1 File(s)         32,747 bytes
+
+ Directory of D:\demontek-steam-template1.6b\demontek-steam-template\templates\parts
+
+08/07/2025  10:39 AM    <DIR>          .
+08/07/2025  10:39 AM    <DIR>          ..
+07/07/2025  07:53 PM             7,544 video_section_part.php
+               1 File(s)          7,544 bytes
+
+     Total Files Listed:
+              17 File(s)        496,759 bytes
+              23 Dir(s)  31,330,713,600 bytes free
